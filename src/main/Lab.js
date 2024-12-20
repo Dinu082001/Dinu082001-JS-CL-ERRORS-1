@@ -44,14 +44,14 @@ function noError(){
  */
 function couldCauseError(callback) {
     // START THE TRY BLOCK HERE
-
-    monitor.innerText = "The button was clicked. This text should only be displayed on the site if an exception is "+
-    "never thrown, as the second message should only replace this one when the try block executes.";
-    callback();
+    try {
+        monitor.innerText = "The button was clicked. This text should only be displayed on the site if an exception is "+
+        "never thrown, as the second message should only replace this one when the try block executes.";
+        callback();
     // END THE TRY BLOCK AND START THE CATCH BLOCK HERE
-
-    monitor.innerText = "This text should be displayed only in the event of a an error, as it should be placed within " +
-    "a try block. If you did intend to cause an error and see this text, you have succeeded.";
+    } catch (error) {
+        monitor.innerText = "This text should be displayed only in the event of a an error, as it should be placed within " +
+        "a try block. If you did intend to cause an error and see this text, you have succeeded.";
     // END THE CATCH BLOCK HERE
-
+    }
 }
